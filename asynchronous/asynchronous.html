@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asynchronous Operations Example</title>
+</head>
+<body>
+    <h1>Asynchronous Operations Example</h1>
+    <fieldset>
+        <legend>
+            Callback function example
+        </legend>
+        <pre id="Callback_function_example">
+            // Callback function example
+function fetchData(callback) {
+    setTimeout(function() {
+        const data = 'This is some fetched data';
+        callback(data);
+    }, 1000);
+}
+
+// Callback function usage
+fetchData(function(data) {
+    console.log('Callback function result:', data);
+});
+
+        </pre>
+        <button id="Callback_function_example_btn" onclick="copyText('Callback_function_example' , 'Callback_function_example_btn')">Copy</button>
+    </fieldset>
+    
+    <fieldset>
+        <legend>
+            Promise example
+        </legend>
+        <pre id="Promise_example">
+            // Promise example
+function fetchDataPromise() {
+    return new Promise(function(resolve, reject) {
+        setTimeout(function() {
+            const data = 'This is some fetched data using Promise';
+            resolve(data);
+        }, 1500);
+    });
+}
+
+// Promise usage
+fetchDataPromise()
+    .then(function(data) {
+        console.log('Promise result:', data);
+    })
+    .catch(function(error) {
+        console.error('Promise error:', error);
+    });
+
+        </pre>
+        <button id="Promise_example_btn" onclick="copyText('Promise_example' , 'Promise_example_btn')">Copy</button>
+    </fieldset>
+    
+    <fieldset>
+        <legend>
+            Async/await example
+        </legend>
+        <pre id="Async_await_example"> 
+            // Async/await example
+async function fetchDataAsync() {
+    try {
+        const data = await fetchDataPromise();
+        console.log('Async/await result:', data);
+    } catch (error) {
+        console.error('Async/await error:', error);
+    }
+}
+
+// Async/await usage
+fetchDataAsync();
+
+        </pre>
+        <button id="Async_await_example_btn" onclick="copyText('Async_await_example' , 'Async_await_example_btn')">Copy</button>
+    </fieldset>
+    <script src="asynchronous.js"></script>
+    <!-- Output -->
+    <h2>Output</h2>
+    <p>Open the browser console (press F12 or right-click and select 'Inspect' > 'Console') to view the output of the code.</p>
+</body>
+</html>

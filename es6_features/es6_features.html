@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES6+ Features Example</title>
+</head>
+<body>
+<h1>ES6+ Features Example</h1>
+<fieldset>
+    <legend>Template Literals</legend>
+    <pre id="templateLiterals">
+        // Template literals
+        const name = 'John';
+        const greeting = `Hello, ${name}!`;
+        document.getElementById('templateLiterals').textContent = greeting;
+    </pre>
+    <button id="templateLiterals_btn" onclick="copyText('templateLiterals' , 'templateLiterals_btn')">Copy</button>
+</fieldset>
+
+<fieldset>
+    <legend>Destructuring Assignments</legend>
+    <pre id="destructuringAssignments">
+        // Destructuring assignments
+        const person = { firstName: 'Alice', lastName: 'Smith' };
+        const { firstName, lastName } = person;
+        document.getElementById('destructuringAssignments').textContent = `${firstName} ${lastName}`;
+    </pre>
+    <button id="destructuringAssignments_btn" onclick="copyText('destructuringAssignments' , 'destructuringAssignments_btn')">Copy</button>
+</fieldset>
+
+<fieldset>
+    <legend>Rest and Spread Operator</legend>
+    <pre id="restAndSpreadOperator">
+        // Rest and spread operator
+        const numbers = [1, 2, 3, 4, 5];
+        const [first, second, ...rest] = numbers;
+        document.getElementById('restAndSpreadOperator').textContent = `Rest operator: ${first} ${second}\nSpread operator: ${rest}`;
+    </pre>
+    <button id="restAndSpreadOperator_btn" onclick="copyText('restAndSpreadOperator' , 'restAndSpreadOperator_btn')">Copy</button>
+</fieldset>
+
+<fieldset>
+    <legend>Arrow Functions</legend>
+    <pre id="arrowFunctions">
+        // Arrow functions
+        const add = (a, b) => a + b;
+        document.getElementById('arrowFunctions').textContent = `Arrow functions: ${add(3, 4)}`;
+    </pre>
+    <button id="arrowFunctions_btn" onclick="copyText('arrowFunctions' , 'arrowFunctions_btn')">Copy</button>
+</fieldset>
+
+<fieldset>
+    <legend>Classes and Inheritance</legend>
+    <pre id="classesAndInheritance">
+        // Classes and inheritance
+        class Person {
+            constructor(name) {
+                this.name = name;
+            }
+
+            greet() {
+                return `Hello, ${this.name}!`;
+            }
+        }
+
+        class Student extends Person {
+            constructor(name, grade) {
+                super(name);
+                this.grade = grade;
+            }
+
+            displayInfo() {
+                return `Name: ${this.name}, Grade: ${this.grade}`;
+            }
+        }
+
+        const student = new Student('Emma', 'A');
+        document.getElementById('classesAndInheritance').textContent = `${student.greet()}\n${student.displayInfo()}`;
+    </pre>
+    <button id="classesAndInheritance_btn" onclick="copyText('classesAndInheritance' , 'classesAndInheritance_btn')">Copy</button>
+</fieldset>
+
+<fieldset>
+    <legend>Default Parameters</legend>
+    <pre id="defaultParameters">
+        // Default parameters
+        function greet(name = 'Guest') {
+            return `Hello, ${name}!`;
+        }
+
+        document.getElementById('defaultParameters').textContent = `Default parameters: ${greet()}`;
+    </pre>
+    <button id="defaultParameters_btn" onclick="copyText('defaultParameters' , 'defaultParameters_btn')">Copy</button>
+</fieldset>
+
+<script src="es6_features.js"></script>
+<!-- Output -->
+<h2>Output</h2>
+<p>Open the browser console (press F12 or right-click and select 'Inspect' > 'Console') to view the output of the code.</p>
+</body>
+</html>

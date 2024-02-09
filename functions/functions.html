@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Basics - Functions</title>
+</head>
+<body>
+
+  <!-- Title -->
+  <h1>JavaScript Basics - Functions</h1>
+  
+  <!-- Introduction -->
+  <p>JavaScript functions are blocks of code that can be reused and executed when needed. They help in organizing code and making it more modular.</p>
+
+  <fieldset id="Arrow">
+    <legend>Arrow function</legend>
+    <pre>
+            // Arrow function
+            const greet = (name) => {
+                console.log(`Hello, ${name}!`);
+            };
+        </pre>
+    <button id="Arrow_btn" onclick="copyText('Arrow', 'Arrow_btn')">Copy</button>
+  </fieldset>
+
+  <fieldset id="DefaultParams">
+    <legend>Default parameters</legend>
+    <pre>
+            // Default parameters
+            const greetDefault = (name = 'World') => {
+                console.log(`Hello, ${name}!`);
+            };
+        </pre>
+    <button id="DefaultParams_btn" onclick="copyText('DefaultParams', 'DefaultParams_btn')">Copy</button>
+  </fieldset>
+
+  <fieldset id="ScopeClosures">
+    <legend>Scope and closures</legend>
+    <pre>
+            // Scope and closures
+            let outerVar = 'I am global';
+
+            const outerFunction = () => {
+                let innerVar = 'I am local';
+
+                const innerFunction = () => {
+                    console.log(outerVar); // Access global variable
+                    console.log(innerVar); // Access variable from outer function
+                };
+
+                return innerFunction;
+            };
+
+            const innerFunc = outerFunction();
+            innerFunc(); // Output: I am global, I am local
+        </pre>
+    <button id="ScopeClosures_btn" onclick="copyText('ScopeClosures', 'ScopeClosures_btn')">Copy</button>
+  </fieldset>
+
+  <fieldset id="ArgObjects">
+    <legend>Argument objects</legend>
+    <pre>
+            // Argument objects
+            const displayArgs = (...args) => {
+                console.log('Arguments:', args);
+            };
+
+            // Test the functions
+            greet('Alice'); // Output: Hello, Alice!
+            greetDefault(); // Output: Hello, World!
+            greetDefault('Bob'); // Output: Hello, Bob!
+
+            displayArgs(1, 'two', true); // Output: Arguments: [1, 'two', true]
+        </pre>
+    <button id="ArgObjects_btn" onclick="copyText('ArgObjects', 'ArgObjects_btn')">Copy</button>
+  </fieldset>
+
+  <!-- Output -->
+  <h2>Output</h2>
+  <p>Open the browser console (press F12 or right-click and select 'Inspect' > 'Console') to view the output of the code.</p>
+</body>
+</html>

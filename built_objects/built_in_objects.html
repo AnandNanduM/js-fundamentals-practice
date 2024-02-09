@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Built-in Objects Examples</title>
+</head>
+<body>
+    <h1>Built-in Objects Examples</h1>
+    <fieldset>
+        <legend>JSON Methods (JSON.parse and JSON.stringify)</legend>
+        <pre id="jsonExample">
+            // JSON methods example
+            const jsonString = '{"name": "John", "age": 30, "city": "New York"}';
+    
+            // JSON.parse() to parse JSON string to JavaScript object
+            const jsonObject = JSON.parse(jsonString);
+            console.log('Parsed JSON:', jsonObject);
+    
+            // JSON.stringify() to convert JavaScript object to JSON string
+            const jsonStringified = JSON.stringify(jsonObject);
+            console.log('Stringified JSON:', jsonStringified);
+    
+            // Display JSON examples in HTML
+            document.getElementById('jsonExample').textContent = `Parsed JSON:\n${JSON.stringify(jsonObject, null, 4)}\nStringified JSON: ${jsonStringified}`;
+    
+        </pre>
+        <button id="jsonExample_btn" onclick="copyText('jsonExample', 'jsonExample_btn')">Copy</button>
+    </fieldset>
+    
+    <fieldset>
+        <legend>Map Example</legend>
+        <pre id="mapExample">
+            // Map example
+            const mapExample = new Map();
+            mapExample.set('key1', 'value1');
+            mapExample.set('key2', 'value2');
+    
+            // Display Map example in HTML
+            document.getElementById('mapExample').textContent = `Map Example:\n${JSON.stringify([...mapExample], null, 4)}`;
+    
+        </pre>
+        <button id="mapExample_btn" onclick="copyText('mapExample', 'mapExample_btn')">Copy</button>
+    </fieldset>
+    
+    <fieldset>
+        <legend>Set Example</legend>
+        <pre id="setExample">
+            // Set example
+            const setExample = new Set();
+            setExample.add('value1');
+            setExample.add('value2');
+            setExample.add('value1'); // Sets do not allow duplicate values
+    
+            // Display Set example in HTML
+            document.getElementById('setExample').textContent = `Set Example:\n${JSON.stringify([...setExample], null, 4)}`;
+        </pre>
+        <button id="setExample_btn" onclick="copyText('setExample', 'setExample_btn')">Copy</button>
+    </fieldset>
+    
+
+    <script src="built_in_objects.js"></script>
+</body>
+</html>

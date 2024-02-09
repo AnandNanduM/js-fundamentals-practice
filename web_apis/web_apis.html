@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web APIs Examples</title>
+</head>
+<body>
+<h1>Web APIs Examples</h1>
+<fieldset>
+    <legend>Local Storage and Session Storage</legend>
+    <pre id="storageExample">
+        // Storage API example
+        localStorage.setItem('key', 'value');
+        sessionStorage.setItem('key', 'value');
+
+        const localStorageValue = localStorage.getItem('key');
+        const sessionStorageValue = sessionStorage.getItem('key');
+
+        document.getElementById('storageExample').textContent = `Local Storage: ${localStorageValue}\nSession Storage: ${sessionStorageValue}`;
+    </pre>
+    <button id="storageExample_btn" onclick="copyText('storageExample', 'storageExample_btn')">Copy</button>
+</fieldset>
+
+<fieldset>
+    <legend>Window History, Location, Navigator Objects</legend>
+    <pre id="webAPIsExample">
+        // Web APIs example
+        // Accessing History Object
+        const historyState = window.history.state;
+        const historyLength = window.history.length;
+
+        // Accessing Location Object
+        const currentURL = window.location.href;
+        const hostname = window.location.hostname;
+        const pathname = window.location.pathname;
+
+        // Accessing Navigator Object
+        const userAgent = window.navigator.userAgent;
+        const platform = window.navigator.platform;
+
+        // Displaying information in webAPIsExample
+        const webAPIsInfo = `History State: ${historyState}\nHistory Length: ${historyLength}\nCurrent URL: ${currentURL}\nHostname: ${hostname}\nPathname: ${pathname}\nUser Agent: ${userAgent}\nPlatform: ${platform}`;
+        document.getElementById('webAPIsExample').textContent = webAPIsInfo;
+    </pre>
+    <button id="webAPIsExample_btn" onclick="copyText('webAPIsExample', 'webAPIsExample_btn')">Copy</button>
+</fieldset>
+
+<fieldset>
+    <legend>Fetch API</legend>
+    <pre id="fetchExample">
+        // Fetch API example
+        fetch('https://jsonplaceholder.typicode.com/posts/1')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                const formattedData = JSON.stringify(data, null, 4); // Format JSON for better readability
+                document.getElementById('fetchExample').textContent = formattedData;
+            })
+            .catch(error => {
+                document.getElementById('fetchExample').textContent = `Fetch API error: ${error.message}`;
+            });
+    </pre>
+    <button id="fetchExample_btn" onclick="copyText('fetchExample', 'fetchExample_btn')">Copy</button>
+</fieldset>
+
+
+<script src="web_apis.js"></script>
+</body>
+</html>

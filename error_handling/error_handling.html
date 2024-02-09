@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error Handling Example</title>
+</head>
+<body>
+    <h1>Error Handling Example</h1>
+
+
+    <fieldset>
+        <legend>Error Handling with try-catch-finally</legend>
+        <pre id="Error_Handling_with_try">
+            // Function to divide two numbers
+            function divideBy(a, b) {
+                // Check if b is zero
+                if (b === 0) {
+                    // If b is zero, throw an error
+                    throw new Error("Cannot divide by zero");
+                }
+                // Otherwise, perform the division
+                return a / b;
+            }
+    
+            // Try-catch-finally block for error handling
+            try {
+                // Attempt the division
+                const result = divideBy(10, 0); // Trying to divide by zero intentionally
+                console.log('Result:', result); // This line won't be executed if an error occurs
+            } catch (error) {
+                // Handle the error
+                console.error('An error occurred:', error.message);
+            } finally {
+                // This block of code will always be executed, regardless of whether an error occurred
+                console.log('Finally block executed.');
+            }
+        
+        </pre>
+
+        <button id="Error_Handling_with_try_btn" onclick="copyText('Error_Handling_with_try' , 'Error_Handling_with_try_btn')">Copy</button>
+    </fieldset>
+ 
+     
+    <script src="error_handling.js"></script>
+    <!-- Output -->
+    <h2>Output</h2>
+    <p>Open the browser console (press F12 or right-click and select 'Inspect' > 'Console') to view the output of the code.</p>
+</body>
+</html>

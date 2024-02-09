@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Basics - Classes and Prototypes</title>
+</head>
+<body>
+  <!-- Title -->
+  <h1>JavaScript Basics - Classes and Prototypes</h1>
+  
+  <!-- Introduction -->
+  <p>Classes and prototypes are fundamental concepts in JavaScript for object-oriented programming.</p>
+  
+  <!-- JavaScript Code -->
+  <fieldset id="ClassDecoration">
+    <legend>Class Decoration</legend>
+    <pre>
+            class Person {
+                constructor(firstName, lastName) {
+                    this.firstName = firstName;
+                    this.lastName = lastName;
+                }
+
+                greet() {
+                    console.log(`Hello, my name is ${this.firstName} ${this.lastName}.`);
+                }
+            }
+        </pre>
+    <button id="ClassDecoration_btn" onclick="copyText('ClassDecoration', 'ClassDecoration_btn')">Copy</button>
+  </fieldset>
+
+  <fieldset id="ConstructorFunction">
+    <legend>Constructor Function</legend>
+    <pre>
+            function Car(make, model) {
+                this.make = make;
+                this.model = model;
+            }
+
+            Car.prototype.drive = function() {
+                console.log(`Driving ${this.make} ${this.model}.`);
+            };
+        </pre>
+    <button id="ConstructorFunction_btn" onclick="copyText('ConstructorFunction', 'ConstructorFunction_btn')">Copy</button>
+  </fieldset>
+
+  <fieldset id="PrototypeInheritance">
+    <legend>Prototype Inheritance</legend>
+    <pre>
+            class Student extends Person {
+                constructor(firstName, lastName, grade) {
+                    super(firstName, lastName);
+                    this.grade = grade;
+                }
+
+                study() {
+                    console.log(`${this.firstName} is studying.`);
+                }
+            }
+        </pre>
+    <button id="PrototypeInheritance_btn" onclick="copyText('PrototypeInheritance', 'PrototypeInheritance_btn')">Copy</button>
+  </fieldset>
+
+  <fieldset id="TestClassesPrototypes">
+    <legend>Test the Classes and Prototypes</legend>
+    <pre>
+            const john = new Person('John', 'Doe');
+            john.greet(); // Output: Hello, my name is John Doe.
+
+            const myCar = new Car('Toyota', 'Corolla');
+            myCar.drive(); // Output: Driving Toyota Corolla.
+
+            const alice = new Student('Alice', 'Smith', 'A');
+            alice.greet(); // Output: Hello, my name is Alice Smith.
+            alice.study(); // Output: Alice is studying.
+        </pre>
+    <button id="TestClassesPrototypes_btn" onclick="copyText('TestClassesPrototypes', 'TestClassesPrototypes_btn')">Copy</button>
+  </fieldset>
+  <!-- Output -->
+  <h2>Output</h2>
+  <p>Open the browser console (press F12 or right-click and select 'Inspect' > 'Console') to view the output of the code.</p>
+</body>
+</html>

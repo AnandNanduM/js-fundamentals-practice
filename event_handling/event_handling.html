@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Basics - Event Handling</title>
+    <style>
+        .focused {
+            border: 10px solid red;
+        }
+        
+        #resizeOutput {
+      font-size: 24px;
+    }   
+     
+
+    </style>
+
+</head>
+<body>
+<!-- Title -->
+<h1>JavaScript Basics - Event Handling</h1>
+
+<!-- Introduction -->
+<p>Event handling in JavaScript allows you to respond to user interactions with the webpage.</p>
+
+<!-- JavaScript Code -->
+<h2>JavaScript Code</h2>
+<!-- Include external JavaScript file -->
+<script src="event_handling.js"></script>
+ 
+<fieldset>
+    <legend>Mouse Events</legend>
+    <pre id="Mouse_Events">
+// Button click event listener
+            const clickBtn = document.getElementById('clickBtn');
+            if (clickBtn) {
+                clickBtn.addEventListener('click', function() {
+                    console.log('Button clicked!');
+                    // Add your code here to handle the button click event
+                });
+            } else {
+                console.error('Button element not found.');
+            }
+
+            // Mouse over event listener
+            const mouseArea = document.getElementById('mouseArea');
+            if (mouseArea) {
+                mouseArea.addEventListener('mouseover', function() {
+                    console.log('Mouse over area!');
+                    // Add your code here to handle the mouseover event
+                });
+            } else {
+                console.error('Mouse area element not found.');
+            }
+    </pre>
+    <!-- Mouse Events -->
+    <button id="clickBtn" style="width: 157px;
+    height: 64px;
+    background-color: lightgray;
+    left: 230px;
+    bottom: 31px;">Click me</button>
+    <div id="mouseArea" style="width: 200px; height: 100px; background-color: lightgray;">Mouse over me</div>
+
+    <button id="Mouse_Events_btn" onclick="copyText('Mouse_Events' , 'Mouse_Events_btn')">Copy</button>
+</fieldset>
+
+<fieldset>
+    <legend>
+        Keyboard Events
+    </legend>
+<pre id="Keyboard_Events">
+    // Keydown event listener for text input
+            const textInput = document.getElementById('textInput');
+            if (textInput) {
+                textInput.addEventListener('keydown', function(event) {
+                    console.log('Key pressed:', event.key);
+                    // Add your code here to handle the keydown event
+                });
+            } else {
+                console.error('Text input element not found.');
+            }
+</pre>
+    <!-- Keyboard Events -->
+    <input type="text" id="textInput" placeholder="Type something" style="width: 200px; 
+    padding: inherit;
+    margin: inherit;">
+    <button id="Keyboard_Events_btn" onclick="copyText('Keyboard_Events' , 'Keyboard_Events_btn')">Copy</button>
+</fieldset>
+
+
+
+<!-- Form Events -->
+    <fieldset>
+        <legend>Form submission event listener </legend>
+
+        <pre id="Form_Events">
+            // Form submission event listener
+            const myForm = document.getElementById('myForm');
+            if (myForm) {
+                myForm.addEventListener('submit', function(event) {
+                    event.preventDefault(); // Prevent form submission
+                    console.log('Form submitted!');
+                    // Add your code here to handle the form submission event
+                    // Retrieve values from input fields
+                    const usernameInput = document.getElementById('username');
+                    const passwordInput = document.getElementById('password');
+                    const usernameValue = usernameInput.value;
+                    const passwordValue = passwordInput.value;
+
+                    // Log values to console
+                    console.log('Username:', usernameValue);
+                    console.log('Password:', passwordValue);
+                });
+            } else {
+                console.error('Form element not found.');
+            }
+        </pre>
+        <form id="myForm" style="
+        padding: inherit;
+        margin: inherit; border: solid;">
+
+        <div>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" placeholder="Enter your username">
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password">
+        </div>
+
+        <button type="submit" style="width: 157px;
+        left: 345px;
+        bottom: 34px;">Submit</button>
+    </form>
+    <button id="Form_Events_btn" onclick="copyText('Form_Events' , 'Form_Events_btn')">Copy</button>
+</fieldset>
+<fieldset>
+    <legend>
+        Focus Events
+    </legend>
+<pre id="Focus_Events">
+    // Focus and blur event listeners for input fields
+            const focusInput = document.getElementById('focusInput');
+            const blurInput = document.getElementById('blurInput');
+            if (focusInput && blurInput) {
+                focusInput.addEventListener('focus', function() {
+                    console.log('Focus input focused!');
+                    focusInput.classList.add('focused');
+                    // Add your code here to handle the focus event for focusInput
+                });
+                focusInput.addEventListener('blur', function() {
+                    console.log('Focus input blurred!');
+                    focusInput.classList.remove('focused');
+                    // Add your code here to handle the blur event for focusInput
+                });
+                blurInput.addEventListener('focus', function() {
+                    console.log('Blur input focused!');
+                    blurInput.classList.add('focused');
+                    // Add your code here to handle the focus event for blurInput
+                });
+                blurInput.addEventListener('blur', function() {
+                    console.log('Blur input blurred!');
+                    blurInput.classList.remove('focused');
+                    // Add your code here to handle the blur event for blurInput
+                });
+            } else {
+                console.error('Focus input element not found.');
+            }
+</pre>
+    <!-- Focus Events -->
+    <input type="text" id="focusInput" placeholder="Focus me" style="width: 200px; 
+    padding: inherit;
+    margin: inherit;">
+    <input type="text" id="blurInput" placeholder="Lose focus here" class="focused" style="width: 200px; 
+    padding: inherit;
+    margin: inherit;">
+
+    <button id="Focus_Events_btn" onclick="copyText('Focus_Events' , 'Focus_Events_btn')">Copy</button>
+</fieldset>
+
+<fieldset>
+    <legend>
+        Window Events
+    </legend>
+<pre id="Window_Events">
+    // Function to update the window width and height
+    function updateWindowSize() {
+        document.getElementById('widthSpan').textContent = window.innerWidth;
+        document.getElementById('heightSpan').textContent = window.innerHeight;
+    }
+
+    // Initial update
+    updateWindowSize();
+
+    // Event listener for window resize event
+    window.addEventListener('resize', updateWindowSize);
+</pre>
+    <!-- Window Events -->
+    <div id="resizeOutput">Width: <span id="widthSpan"></span>
+        <br/>Height: <span id="heightSpan"></span></div>
+        <button id="Window_Events_btn" onclick="copyText('Window_Events' , 'Window_Events_btn')">Copy</button>
+
+
+</fieldset>
+<fieldset>
+    <legend>
+        Media Events
+    </legend>
+<pre id="Media_Events">// Video element and its events
+    const myVideo = document.getElementById('myVideo');
+    if (myVideo) {
+        // Event listener for when the video starts playing
+        myVideo.addEventListener('play', function() {
+            console.log('Video started playing');
+            // Add your code here to handle the play event
+        });
+
+        // Event listener for when the video is paused
+        myVideo.addEventListener('pause', function() {
+            console.log('Video paused');
+            // Add your code here to handle the pause event
+        });
+
+        // Event listener for when the video playback ends
+        myVideo.addEventListener('ended', function() {
+            console.log('Video playback ended');
+            // Add your code here to handle the ended event
+        });
+    }</pre>
+<!-- Media Events -->
+<video id="myVideo" width="320" height="240" controls>
+    <source src="https://www.youtube.com/watch?v=dQw4w9WgXcQ" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <button id="Media_Events_btn" onclick="copyText('Media_Events' , 'Media_Events_btn')">Copy</button>
+</fieldset>
+
+<!-- Output -->
+<h2>Output</h2>
+<p>Open the browser console (press F12 or right-click and select 'Inspect' > 'Console') to view the output of the code.</p>
+</body>
+</html>
